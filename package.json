@@ -1,0 +1,24 @@
+{
+  "name": "agenda_de_contactos",
+  "version": "1.0.0",
+  "description": "Descripcion breve del proyecto: \r Este es un proyecto basado en una agenda de contactos usados en nuestros dispositivos móviles. Creado con para fines de estudio, esta hace las funciones de un CRUD.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eugenewu11/Agenda_De_Contactos.git"
+  },
+  "keywords": [],
+  "author": "Eugene Kelly Wu Leiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eugenewu11/Agenda_De_Contactos/issues"
+  },
+  "homepage": "https://github.com/Eugenewu11/Agenda_De_Contactos#readme",
+  "dependencies": {
+    "express": "5.1.0"
+  }
+}

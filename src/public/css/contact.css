@@ -1,0 +1,41 @@
+.contact-container{
+    background-color: rgb(238, 237, 237);
+
+    height: 50px;
+    width: 1100px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.contact-name{
+    font-family: Arial;
+    font-size: 17px;
+
+    padding-left: 20px;
+}
+
+
+.contact-container:hover{
+    cursor: pointer;
+    background-color: rgb(221, 221, 221);
+    transition: 0.3s;
+}
+
+.llamar-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.call-btn{
+    height: 40px;
+    width: 40px;
+    border: 1px;
+    border-radius: 20px;
+    background-color: #4A6CF7;
+}
