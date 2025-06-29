@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .search-bar{
     width: 400px;
+    max-width: 410px;
     margin-left: 15px;
     padding-left: 10px;
     font-size: 16px;
@@ -26,11 +28,20 @@
     border-radius: 25px;
     border-width: 0;
     background-color: #4A6CF7;
+    margin-left: 15px;
+    min-height: 50px;
+    min-width: 50px;
+    flex-shrink: 0;
 }
 
 .search-button:hover{
     opacity: 1;
     cursor: pointer;
-    background-color: #6380f5;
+    background-color: #3A5BD6;
     transition: 0.7s;
+}
+
+.search-bar::placeholder{
+    font-family: Arial;
+    font-size: 18px;
 }

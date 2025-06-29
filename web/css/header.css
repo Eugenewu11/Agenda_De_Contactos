@@ -2,10 +2,10 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    height: 200px;
+    right: 0;
+    height: 70px;
     width: 100%;
     z-index: 1000; 
-
 }
 
 .header{
@@ -19,8 +19,13 @@ header {
     align-items: center;
     flex: 1;
 
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #4267fa;
+
     padding: 10px 10px;
     margin-bottom: 30px;
+    
 }
 
 .mid-section{
@@ -29,6 +34,7 @@ header {
     justify-content: center;
     align-items: center;
     flex: 1;
+    flex-shrink: 0;
 }
 
 .titulo{
