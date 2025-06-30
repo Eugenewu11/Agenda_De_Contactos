@@ -27,7 +27,7 @@
     width: 50px;
     border-radius: 25px;
     border-width: 0;
-    background-color: #4A6CF7;
+    background-color: #F7A64A;
     margin-left: 15px;
     min-height: 50px;
     min-width: 50px;
@@ -37,8 +37,8 @@
 .search-button:hover{
     opacity: 1;
     cursor: pointer;
-    background-color: #3A5BD6;
-    transition: 0.7s;
+    background-color: #df8d30;
+    transition: 0.3s;
 }
 
 .search-bar::placeholder{

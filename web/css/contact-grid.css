@@ -1,5 +1,5 @@
 .contact-container{
-    background-color: #FFFFFF;
+    background-color: #4a5dac;
 
     height: 50px;
     width: 1450px;
@@ -13,10 +13,6 @@
     padding: 0 20px;
     flex-shrink: 0;
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(207, 207, 207);
-
     padding: 0;
 }
 
@@ -25,13 +21,13 @@
     font-size: 17px;
 
     padding-left: 20px;
-    color: #1F2937;
+    color:white
 }
 
 
 .contact-container:hover,.modalBtn:hover{
     cursor: pointer;
-    background-color: rgb(221, 221, 221);
+    background-color: #6380f5;
     transition: 0.3s;
 }
 
@@ -45,10 +41,10 @@
     width: 40px;
     border: 1px;
     border-radius: 20px;
-    /*background-color: rgb(204, 204, 204);*/
     background-color: #4A6CF7;
+    margin-right: 20px;
 }
-/*background-color: #4A6CF7;*/
+
 .call-btn:hover{
     cursor: pointer;
     transition: 0.3s;

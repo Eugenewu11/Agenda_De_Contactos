@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <title id="perfilContacto">
-            Contacto X
+            Perfil de Contacto
         </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,126 @@
         <link rel="stylesheet" href="../web/css/perfil.css">
     </head>
 
-    <body>
-        <header>
+    <body class="perfil-body">
+
+        <header class="perfil-header">
+
+            <div class="header-div">
+                <!--BOTON FAVORITO-->
+                <div class="left-section">
+
+                    <div  class="atras-div">
+                        <button id="atras-btn" class="atras-btn">
+                            <img src="./assets/logos/atras.png" class="atras-icon">
+                        </button>
+                    </div>
+
+                    <div class="fav-div">
+                        <button class="favorito-btn" id="favorito-btn">
+                            <img src="./assets/logos/favoritoSinClick.png" class="favorito-icon">
+                        </button>
+                    </div>
+
+                    
+                </div>
+
+                <div class="mid-section">
+                    <!--FOTO USUARIO-->
+                    <div class="foto-div">
+                        <img src="./assets/logos/fotoUsuario.png" class="user-icon">
+                    </div>
+
+                    <!--NOMBRE DE CONTACTO-->
+                    <div class="nombre-div" id="nombreContacto">
+                        <span class="nombreContacto">
+                            Nombre de contacto
+                        </span>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <!--BOTONES CRUD-->
+                    <div class="btns-cud">
+                        <button class="editar-btn" id="editar-btn">
+                            <img src="./assets/logos/editar.png" class="editar-icon">
+                        </button>
+
+                        <button class="eliminar-btn" id="eliminar-btn">
+                            <img src="./assets/logos/borrar.png" class="eliminar-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
             
         </header>
+
+        <!--NUMERO DE TELEFONO-->
+        <div class="numero-div">
+            <span class="titulo">
+                Número de teléfono
+            </span>
+
+            <div class="numero">
+                +50411223344
+            </div>
+
+            <div class="btn-wrapper">
+                <button class="copiar-btn">
+                    <img src="./assets/logos/copiar.png" class="copiar-icon">
+                </button>
+
+                <button class="call-btn">
+                    <img src="./assets/logos/call.png" class="call-icon">
+                </button>
+            </div>
+
+        </div>
+
+        <!--CORREO-->
+        <div class="correo-div">
+            <div class="titulo">
+                Correo Electrónico
+            </div>
+
+            <div class="correo">
+                john.doe@gmail.com
+            </div>
+
+            <div class="btn-wrapper">
+                <button class="copiar-btn">
+                    <img src="./assets/logos/copiar.png" class="copiar-icon">
+                </button>
+
+                <button class="correo-btn">
+                    <img src="./assets/logos/correo.png" class="correo-icon">
+                </button>
+            </div>
+        </div>
+
+        <!--COMPARTIR-->
+        <div class="compartir-div">
+            <span class="titulo">
+                Compartir contacto
+            </span>
+
+            <button class="compartir-btn">
+                <img src="./assets/logos/compartir.png" class="compartir-icon">
+            </button>
+        </div>
+
+        <!--CODIGO QR-->
+
+        <div class="qr-div">
+            <span class="titulo">
+                Código QR
+            </span>
+
+            <button class="QR-btn">
+                <img src="./assets/logos/codigo-qr.png" class="QR-icon">
+            </button>
+        </div>
+
+        <!--SCRIPTS-->
+        <script src="./Scripts/contactosCRUD.js"></script>
     </body>
 </html>

@@ -2,10 +2,10 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    top: 90px;
-    background-color: white;
+    top: 150px;
+    background-color: #4a5dac;
     border-left-width: 1px;
-    border-left-color: rgb(209, 208, 208);
+    border-left-color: #4a5dac;
     border-left-style: solid;
     width: 30px;
 }
@@ -17,8 +17,8 @@
     
     align-items: center;
     justify-content: center;
-    background-color: white;
-    border: 1px solid rgb(209, 208, 208);
+    background-color: #4a5dac;
+    border: none;
 
     margin: 0;
     padding: 0;
@@ -26,25 +26,27 @@
 
 
 .letrabtn{
-    width: 30px;
-    height: 30px;
-    color: #515661;
+    width: 28px;
+    height: 28px;
+    color: white;
     font-size: 16px;
     border: none;
+    background-color: #4a5dac;
 }
 
 .favoritos-icon-sidebar{
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
 }
 
-.favoritos-icon-sidebar:hover{
+.favorito-btn-sidebar:hover{
     cursor: pointer;
+    background-color: #F7A64A;
 }
 
 .letrabtn:hover{
     cursor: pointer;
 
     font-weight: 700;
-    color: #4A6CF7;
+    background-color: #F7A64A;
 }

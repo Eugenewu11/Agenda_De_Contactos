@@ -3,13 +3,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
+    height: 130px;
     width: 100%;
     z-index: 1000; 
 }
 
 .header{
-    height:70px;
+    height:130px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,7 +25,6 @@ header {
 
     padding: 10px 10px;
     margin-bottom: 30px;
-    
 }
 
 .mid-section{
@@ -38,10 +37,8 @@ header {
 }
 
 .titulo{
-    margin-left: 15px;
     font-size: 30px;
     font-weight: bold;
-    font-style: normal;
     color: white;
 }
 
@@ -50,3 +47,10 @@ header {
     width: 60px;
 }
 
+.header-icon-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px;
+}

@@ -1,40 +1,180 @@
-body{
-    font-family: Arial, Helvetica;
+/*GENERAL*/
+
+
+.perfil-body{
+    background-color: #1B1F3B;
+    height: 800px;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
-.modal{
-    display: none;
-    position: fixed;
+.perfil-header{
+
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 70px;
+
+    height: 200px;
+    width: 100%;
+
+    background-color: #4A6CF7;
+}
+
+/*DIVS*/
+.header-div{
+    height: 200px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
+    right: 0;  
+}
+
+.foto-div, .nombre-div{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal-content{
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 500px;
-    position: relative;
-    border: 8px solid #4A6CF7;
+.numero-div, .correo-div,.compartir-div,.qr-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    margin-bottom: 15px;
+
+    background-color: #4a5dac;
 }
 
-.close{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 34px;
+/*SECCIONES*/
+.left-section{
+    display: flex;
+    justify-content: start;
+    align-items: first baseline;
+
+    padding: 25px;
+    height: 200px;
+    gap: 10px;
+}
+
+.mid-section{
+    display: grid;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.right-section{
+    display: flex;
+    justify-content: end;
+    align-items: first baseline;
+
+    padding: 25px;
+    height: 200px;
+    gap: 10px;
+}
+
+/*ICONOS*/
+.favorito-icon, .editar-icon, .eliminar-icon, .atras-icon{
+    height: 30px;
+    width: 30px;
+}
+
+.call-icon,
+.correo-icon,.compartir-icon, .QR-icon, .copiar-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.user-icon{
+    height: 100px;
+    height: 100px;
+}
+
+/*BOTONES*/
+.favorito-btn,.editar-btn, .eliminar-btn, .atras-btn
+{
+    height: 50px;
+    max-height: 50px;
+    width: 50px;
+    max-width: 50px;
+    border-radius: 25px;
+    border: none; 
+
     cursor: pointer;
-    color: red;
-    font-weight: 700;
-    transition: all 0.3s ease;
+    background-color: #F7A64A;
 }
 
-.close:hover{
-    transform: scale(1.2);
+.favorito-btn, .eliminar-btn{
+    margin-left: 10px;
+}
+
+.compartir-btn,.QR-btn{
+    margin-right: 20px;
+}
+.btn-wrapper{
+    margin-right: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.call-btn, .compartir-btn,
+.correo-btn,.QR-btn, .copiar-btn{
+    height: 40px;
+    max-height: 40px;
+    width: 40px;
+    max-width: 40px;
+    border-radius: 20px;
+    border: none; 
+
+    cursor: pointer;
+    background-color: #F7A64A
+}
+
+/*ANIMACIONES*/
+.favorito-btn:hover,
+.editar-btn:hover,
+.eliminar-btn:hover,
+.atras-btn:hover,
+.call-btn:hover,
+.compartir-btn:hover,
+.correo-btn:hover,
+.QR-btn:hover,
+.copiar-btn:hover  {
+  transform: scale(1.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #f79e38;
+}
+
+/*TEXTO*/
+.nombreContacto{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.correo,.numero,.qr{
+    color: white;
+    font-family: arial;
+    font-size: 13px;
+}
+
+.titulo{
+    color: white;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-left: 25px;
 }

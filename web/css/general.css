@@ -1,15 +1,17 @@
 body{
     margin: 0;
-    padding-top: 130px;
+    padding-top: 180px;
     margin-left: 60px;
     padding-right: 80px;
     height: 3000px;
 
-    background-color: #F0F2FF;
+    background-color: #1B1F3B;
 }
 
 hr{
     width: 1120px;
     margin-left: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 

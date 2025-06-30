@@ -1,0 +1,243 @@
+/*GENERAL*/
+
+.save-body{
+    background-color: #1B1F3B;
+    width: 100%;
+    height: 800px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.save-header{
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 70px;
+
+    height: 200px;
+    width: 100%;
+
+    background-color: #4A6CF7;
+}
+
+/*DIVS*/
+.header-div{
+    height: 200px;
+    width: 100%;
+
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.left-section{
+    display: flex;
+    justify-content: start;
+    align-items: first baseline;
+    flex-shrink: 0;
+
+    margin: 30px;
+}
+
+.mid-section{
+    height: 200px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+
+}
+
+.agenda-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.atras-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90px;
+    width: 1900px;
+
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    padding: 0;
+
+    background-color: #4a5dac;
+}
+
+.primerNom-div{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.segNom-div{
+    color: white;
+    font-size: 24px;
+    font-weight: 700; 
+    margin-right: 20px;
+
+}
+
+.apellidos-div{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 20px;
+
+}
+
+.correo-div{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 30px;
+
+}
+
+.guardar-btn-div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 40px;
+    gap: 15px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.textoGuardar-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*ICONOS*/
+
+.agenda-icon{
+    height: 100px;
+    width: 100px;
+}
+
+.atras-icon{
+    height: 30px;
+    width: 30px;
+}
+
+.guardar-icon{
+    height: 40px;
+    width: 40px;
+}
+
+/*BOTONES*/
+.atras-btn{
+    height: 80px;
+    max-height: 80px;
+    width: 80px;
+    max-width: 80px;
+    border-radius: 40px;
+    border: none;
+
+    cursor: pointer;
+    background-color: #F7A64A;
+}
+
+.save-btn{
+    height: 70px;
+    max-height: 70px;
+    width: 70px;
+    max-width: 70px;
+    border-radius: 35px;
+    border: none;
+
+    cursor: pointer;
+    background-color: #F7A64A;
+}
+
+/*TEXTO*/
+
+.registrar-title{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/*INPUTS*/
+
+.primerNomInput{
+   width: 300px;
+   height: 30px;
+   border-radius: 3px;
+   border: 1px solid rgb(37, 37, 37);
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+
+   padding: 10px 15px;
+   margin-left: 14px;
+   color: rgb(36, 35, 35);
+
+   font-size: 16px;
+
+}
+
+.segNomInput{
+   width: 300px;
+   height: 30px;
+   border-radius: 3px;
+   border: 1px solid rgb(37, 37, 37);
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+
+   padding: 10px 15px;
+   margin-left:  5px;
+   color: rgb(36, 35, 35);
+
+   font-size: 16px;
+}
+
+.apellidosInput{
+   width: 300px;
+   height: 30px;
+   border-radius: 3px;
+   border: 1px solid rgb(37, 37, 37);
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+
+   padding: 10px 15px;
+   margin-left: 80px;
+   color: rgb(36, 35, 35);
+
+   font-size: 16px;
+}
+
+.correoInput{
+   width: 300px;
+   height: 30px;
+   border-radius: 3px;
+   border: 1px solid rgb(37, 37, 37);
+   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+
+   padding: 10px 15px;
+   margin-left: -8px;
+   color: rgb(36, 35, 35);
+
+   font-size: 16px;
+}

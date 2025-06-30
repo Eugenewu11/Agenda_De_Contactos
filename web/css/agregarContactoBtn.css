@@ -3,8 +3,6 @@
     position: fixed;
     right: 55px;
     bottom: 20px;
-
-
 }
 
 .aggContacto-btn{
@@ -29,5 +27,5 @@
 .aggContacto-btn:hover{
     cursor: pointer;
     transition: 0.3s;
-    background-color: #3A5BD6;
+    background-color: #bb7729;
 }

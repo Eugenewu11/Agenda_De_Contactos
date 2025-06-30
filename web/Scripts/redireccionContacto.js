@@ -1,3 +1,4 @@
+//! Abre el perfil del contacto en una nueva pagina 
 document.addEventListener('DOMContentLoaded', () => {
   const contactos = document.querySelectorAll('.contact-container');
 
@@ -9,3 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+//! Abre nueva pagina para guardar nuevo contacto
+
+//TODO: Que la redireccion sea segun el id de contacto.

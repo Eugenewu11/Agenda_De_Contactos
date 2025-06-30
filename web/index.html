@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
             Agenda de contactos
         </title>
 
-        <!--Recursos de css-->
+        <!--CSS's-->
         <link rel="stylesheet" href="./css/contact-grid.css">
         <link rel="stylesheet" href="./css/general.css">
         <link rel="stylesheet" href="./css/header.css">
@@ -21,6 +21,7 @@
     </head>
 
     <body>
+        <!--HEADER-->
         <header>
             <div class="header">
                 <div class="mid-section">
@@ -34,6 +35,7 @@
             </div>
         </header>
 
+        <!--SIDEBAR-->
         <div class="sidebar">
             <button class="favorito-btn-sidebar" id="favoritos-sidebar">
                 <img src="./assets/logos/favoritoConClick.png" class="favoritos-icon-sidebar">
@@ -119,6 +121,7 @@
         </div>
 
 
+        <!--BARRA DE BUSQUEDA-->
         <div class="search-section">
             <input class="search-bar" type="text" placeholder="Buscar contacto">
 
@@ -128,13 +131,10 @@
         </div>
         
 
+        <!--LISTA DE CONTACTOS-->
         <main>
-            <div class="seccionFavoritos">
-                <img src="./assets/logos/favoritoSinClick.png" class="seccionFavoritosIcon">
-                <hr>
-            </div>
+            <hr>
             
-
             <div class="contact-container">
                 <button class="modalBtn"  id="modalProfile">
                     <div class="contact-name">
@@ -161,13 +161,16 @@
         </main>
 
 
+        <!--BOTON DE AGREGAR CONTACTO-->
         <div class="aggContacto-container">
             <button class="aggContacto-btn">
                 <img class="aggContacto-icon" src="../web/assets/logos/agContacto.png">
             </button>
         </div>
         
-        <script src="./Scripts/contacto.js"></script>
+
+        <!--SCRIPTS-->
+        <script src="./Scripts/redireccionContacto.js"></script>
     </body>
 
 </html>

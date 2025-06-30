@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Nuevo contacto
+        </title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--CSS's-->
+        <link rel="stylesheet" href="./css/crearContacto.css">
+
+    </head>
+
+    <body class="save-body">
+        <!--HEADER-->
+        <header class="save-header">
+            <div class="header-div">
+                <div class="left-section">
+                    <div class="atras-div">
+                        <button id="atras-btn" class="atras-btn">
+                            <img src="./assets/logos/atras.png" class="atras-icon">
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="mid-section">
+                    <div class="agenda-div">
+                        <img src="./assets/logos/agenda.png" class="agenda-icon">
+                    </div>
+                    
+                    <div class="registrar-title">
+                        Registrar contacto
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main class="save-main">
+
+            <div class="info-container">
+                <div class="primerNom-div">
+                    Primer Nombre
+                </div>
+
+                <div class="input-div">
+                    <input class="primerNomInput" type="text" placeholder="Escribe aqui...">
+                </div>
+            </div>
+
+            <div class="info-container">
+                <div class="segNom-div">
+                    Segundo Nombre
+                </div>
+
+                <div class="input-div">
+                    <input class="segNomInput" type="text" placeholder="Escribe aqui...">
+                </div>
+            </div>
+
+            <div class="info-container">
+                <div class="apellidos-div">
+                    Apellidos
+                </div>
+
+                <div class="input-div">
+                    <input class="apellidosInput" type="text" placeholder="Escribe aqui...">
+                </div>
+            </div>
+
+            <div class="info-container">
+                <div class="correo-div">
+                    Correo Electronico
+                </div>
+
+                <div class="input-div">
+                    <input class="correoInput" type="text" placeholder="Escribe aqui...">
+                </div>
+            </div>
+
+            <div class="guardar-btn-div">
+                <button class="save-btn">
+                    <img class="guardar-icon" src="./assets/logos/guardar.png">
+                </button>
+
+                <div class="textoGuardar-div">
+                    Guardar
+                </div>
+            </div>
+        </main>
+
+
+        <!--SCRIPTS-->
+        <script src="./Scripts/contactosCRUD.js"></script>
+    </body>
+</html>
