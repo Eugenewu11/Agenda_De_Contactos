@@ -2,12 +2,12 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    top: 150px;
+    top: 180px;
     background-color: #4a5dac;
     border-left-width: 1px;
     border-left-color: #4a5dac;
     border-left-style: solid;
-    width: 30px;
+    width: 35px;
 }
 
 .favorito-btn-sidebar{
@@ -26,12 +26,17 @@
 
 
 .letrabtn{
-    width: 28px;
-    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
     color: white;
     font-size: 16px;
     border: none;
     background-color: #4a5dac;
+    text-align: center;
 }
 
 .favoritos-icon-sidebar{

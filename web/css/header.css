@@ -3,13 +3,15 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 130px;
+    height: 160px;
     width: 100%;
     z-index: 1000; 
+
+    background-color: black;
 }
 
 .header{
-    height:130px;
+    height:160px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,14 +39,14 @@ header {
 }
 
 .titulo{
-    font-size: 30px;
+    font-size: 30px !important; 
     font-weight: bold;
     color: white;
 }
 
 .header-icon{
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 }
 
 .header-icon-div{

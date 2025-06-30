@@ -2,8 +2,6 @@
 
 .save-body{
     background-color: #1B1F3B;
-    width: 100%;
-    height: 800px;
     color: white;
     margin: 0;
     padding: 0;
@@ -23,33 +21,28 @@
 
 /*DIVS*/
 .header-div{
+    display: flex;
+    align-items: center;
+    align-items: center;
+
     height: 200px;
     width: 100%;
-
-    display: flex;
-    gap: 20px;
-    flex-shrink: 0;
 }
 
-.left-section{
+.left-section,.right-section{
+    width: 20%;
     display: flex;
     justify-content: start;
-    align-items: first baseline;
-    flex-shrink: 0;
-
-    margin: 30px;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .mid-section{
-    height: 200px;
-    width: 100%;
-
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    flex-shrink: 0;
-
 }
 
 .agenda-div{
