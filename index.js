@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 //Ruta de contactos
-app.use('/',contactRoutes)
+app.use('/contactos',contactRoutes)
 
 //Si no se encuentra esa ruta, mostrar error
 app.use((req,res)=>{

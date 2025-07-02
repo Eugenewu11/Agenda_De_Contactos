@@ -1,2 +1,18 @@
 ### Lista de contactos
-GET http://localhost:3000/
+GET http://localhost:3000/contactos
+
+
+###Buscar en searchbar
+GET http://localhost:3000/contactos/search?nombre=mart
+
+### Crear un contacto
+POST http://localhost:3000/contactos
+Content-Type: application/json
+
+{
+    "primerNombre": "Eugene",
+    "segundoNombre": "Kelly",
+    "apellidos": "Wu Leiva",
+    "telefono": "+50411332244",
+    "correo": "eugene.wu@example.com"
+}

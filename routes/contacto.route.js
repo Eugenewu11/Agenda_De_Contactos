@@ -1,27 +1,24 @@
 import { Router } from 'express'
 import{
-    getContacto,
-    searchByName,
-    createContact,
-    updateContact,
-    deleteContact,
-    getAll
+    getAllContactos,
+    getSearchContacto,
+    createContactos,
+    updateContactos,
+    deleteContactos
 } from '../controllers/contacto.controller.js'
 
 const contactRouter = Router()
 
 contactRouter.get('/',(req,res)=>{
-    getAll(req,res)
+    getAllContactos(req,res)
 })
 
-contactRouter.get('/',getContacto)
+contactRouter.get('/search',getSearchContacto)
 
-contactRouter.get('/:nombre',searchByName)
+contactRouter.post('/',createContactos)
 
-contactRouter.post('/',createContact)
+contactRouter.patch('/:id',updateContactos)
 
-contactRouter.patch('/',updateContact)
-
-contactRouter.delete('/',deleteContact)
+contactRouter.delete('/:id',deleteContactos)
 
 export default contactRouter

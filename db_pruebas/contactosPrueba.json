@@ -1,0 +1,37 @@
+[
+  {
+    "primerNombre": "Carlos",
+    "segundoNombre": "Eduardo",
+    "apellidos": "Ramírez López",
+    "telefono": "+50498765432",
+    "correo": "carlos.ramirez@example.com"
+  },
+  {
+    "primerNombre": "Ana",
+    "segundoNombre": "María",
+    "apellidos": "Fernández Soto",
+    "telefono": "+50492345678",
+    "correo": "ana.fernandez@example.com"
+  },
+  {
+    "primerNombre": "Luis",
+    "segundoNombre": "Alonso",
+    "apellidos": "Martínez Rivera",
+    "telefono": "+50493456789",
+    "correo": "luis.martinez@example.com"
+  },
+  {
+    "primerNombre": "Sofía",
+    "segundoNombre": "Isabel",
+    "apellidos": "González Mejía",
+    "telefono": "+50494567890",
+    "correo": "sofia.gonzalez@example.com"
+  },
+  {
+    "primerNombre": "José",
+    "segundoNombre": "Manuel",
+    "apellidos": "Hernández Cruz",
+    "telefono": "+50495678901",
+    "correo": "jose.hernandez@example.com"
+  }
+]
