@@ -10,6 +10,7 @@ POST http://localhost:3000/contactos
 Content-Type: application/json
 
 {
+    "id": 1,
     "primerNombre": "Eugene",
     "segundoNombre": "Kelly",
     "apellidos": "Wu Leiva",

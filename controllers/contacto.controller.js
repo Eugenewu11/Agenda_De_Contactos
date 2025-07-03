@@ -1,3 +1,4 @@
+
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
 //const {getConexion, sql} = require('../database/database.js')
 
@@ -44,7 +45,12 @@ export const getSearchContacto = (req,res) => {
 
     //Crear un contacto
     export const createContactos =  (req,res)=>{
-        const {primerNombre,segundoNombre,apellidos,telefono,correo} = req.body
+        const {id, primerNombre,segundoNombre,apellidos,telefono,correo} = req.body
+
+        //Validar que el id sea un numero
+        const parsedId = Number(id)
+
+        if(isNaN(parsedId) || parsedId <= 0 )
 
         //Si no existe o es vacio
         if(!primerNombre || primerNombre.trim()=== ""){
@@ -53,6 +59,12 @@ export const getSearchContacto = (req,res) => {
             })
         }
         
+        if(!segundoNombre || segundoNombre.trim()=== ""){
+            return res.status(400).json({
+                message: 'Este campo es obligatorio'
+            })
+        }
+
         //El apellido no puede ir vacio
         if (!apellidos || apellidos.trim() === "") {
             return res.status(400).json({ message: 'Los apellidos son obligatorios.' });
@@ -70,7 +82,10 @@ export const getSearchContacto = (req,res) => {
             return res.status(400).json({ message: 'El correo electrónico no tiene un formato válido.' });
         }
 
+        const nuevoID = contactos.length > 0 ? Math.max(...contactos.map( contacto => contacto.id)) + 1 : 1
+
         const nuevoContacto = {
+            id: nuevoID,
             primerNombre: primerNombre.trim(),
             segundoNombre: segundoNombre ? segundoNombre.trim() : "",
             apellidos: apellidos.trim(),
@@ -86,9 +101,88 @@ export const getSearchContacto = (req,res) => {
     }
 
     //Actualizar un contacto
-    export const updateContactos =  (req,res)=>{
+   export const updateContactos = (req, res) => {
+    const { id } = req.params;
+    const parsedId = Number(id);
 
+    if (isNaN(parsedId) || parsedId <= 0) {
+        return res.status(400).json({
+            message: 'El ID debe ser un número positivo.'
+        });
     }
+
+    const data = req.body;
+    const dataValida = {};
+
+    const index = contactos.findIndex(contacto => contacto.id === parsedId);
+
+    if (index === -1) {
+        return res.status(404).json({
+            message: 'Contacto no existente'
+        });
+    }
+
+    // Validar primerNombre
+    if (!data.primerNombre || typeof data.primerNombre !== 'string' || data.primerNombre.trim() === '') {
+        return res.status(400).json({ 
+            message: 'El primer nombre no es válido.'
+        });
+    } else {
+        dataValida.primerNombre = data.primerNombre.trim();
+    }
+
+    // Validar segundoNombre 
+    if (data.segundoNombre && typeof data.segundoNombre === 'string') {
+        dataValida.segundoNombre = data.segundoNombre.trim();
+    }
+
+    // Validar apellidos
+    if (!data.apellidos || typeof data.apellidos !== 'string' || data.apellidos.trim() === '') {
+        return res.status(400).json({ 
+            message: 'Los apellidos no son válidos.'
+        });
+    } else {
+        dataValida.apellidos = data.apellidos.trim();
+    }
+
+    // Validar teléfono
+    if (!data.telefono || typeof data.telefono !== 'string') {
+        return res.status(400).json({ 
+            message: 'El número de teléfono es obligatorio.' 
+        });
+    }
+
+    const esTelefonoValido = /^\+?\d{7,15}$/.test(data.telefono);
+
+    if (!esTelefonoValido) {
+        return res.status(400).json({
+             message: 'El número de teléfono no es válido.' 
+        });
+    } else {
+        dataValida.telefono = data.telefono.trim();
+    }
+
+    // Validar correo (opcional)
+    if (data.correo) {
+        if (
+            typeof data.correo !== 'string' ||
+            !/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(data.correo)
+        ) {
+            return res.status(400).json({ message: 'El correo electrónico no tiene un formato válido.' });
+        } else {
+            dataValida.correo = data.correo.trim();
+        }
+    }
+
+    // Actualizar contacto
+    contactos[index] = { ...contactos[index], ...dataValida };
+
+    res.status(200).json({
+        message: 'Contacto actualizado correctamente.',
+        contacto: contactos[index]
+    });
+};
+
 
     //Eliminar un contacto
     export const deleteContactos =  (req,res)=>{
