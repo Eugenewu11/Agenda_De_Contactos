@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "primerNombre": "Carlos",
     "segundoNombre": "Eduardo",
     "apellidos": "Ramírez López",
@@ -7,6 +8,7 @@
     "correo": "carlos.ramirez@example.com"
   },
   {
+    "id": 2,
     "primerNombre": "Ana",
     "segundoNombre": "María",
     "apellidos": "Fernández Soto",
@@ -14,6 +16,7 @@
     "correo": "ana.fernandez@example.com"
   },
   {
+    "id": 3,
     "primerNombre": "Luis",
     "segundoNombre": "Alonso",
     "apellidos": "Martínez Rivera",
@@ -21,6 +24,7 @@
     "correo": "luis.martinez@example.com"
   },
   {
+    "id": 4,
     "primerNombre": "Sofía",
     "segundoNombre": "Isabel",
     "apellidos": "González Mejía",
@@ -28,6 +32,7 @@
     "correo": "sofia.gonzalez@example.com"
   },
   {
+    "id": 5,
     "primerNombre": "José",
     "segundoNombre": "Manuel",
     "apellidos": "Hernández Cruz",

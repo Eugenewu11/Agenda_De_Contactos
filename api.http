@@ -10,10 +10,24 @@ POST http://localhost:3000/contactos
 Content-Type: application/json
 
 {
-    "id": 1,
     "primerNombre": "Eugene",
     "segundoNombre": "Kelly",
     "apellidos": "Wu Leiva",
     "telefono": "+50411332244",
     "correo": "eugene.wu@example.com"
 }
+
+### Actualizar un contacto
+PATCH http://localhost:3000/contactos/6
+Content-Type: application/json
+
+{
+    "primerNombre": "Gene",
+    "segundoNombre": "Kelly",
+    "apellidos": "Wu Leiva",
+    "telefono": "+50411332244",
+    "correo": "eugene.wu@example.com"
+}
+
+### Eliminar un contacto
+DELETE http://localhost:3000/contactos/5

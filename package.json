@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Eugenewu11/Agenda_De_Contactos#readme",
   "dependencies": {
     "express": "5.1.0",
-    "mssql": "^11.0.1"
+    "mssql": "^11.0.1",
+    "zod": "^3.25.72"
   }
 }

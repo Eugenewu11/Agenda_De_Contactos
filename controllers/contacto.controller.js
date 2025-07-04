@@ -1,5 +1,4 @@
-
-import { message } from 'telegram/client'
+import { validateContactos } from '../schemas/contactos.schemas.js'
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
 //const {getConexion, sql} = require('../database/database.js')
 
@@ -45,61 +44,34 @@ export const getSearchContacto = (req,res) => {
 }
 
     //Crear un contacto
-    export const createContactos =  (req,res)=>{
-        const {id, primerNombre,segundoNombre,apellidos,telefono,correo} = req.body
+export const createContactos = (req, res) => {
 
-        //Validar que el id sea un numero
-        const parsedId = Number(id)
+  const parseResult = validateContactos(req.body);
 
-        if(isNaN(parsedId) || parsedId <= 0 )
+  if (!parseResult.success) {
 
-        //Si no existe o es vacio
-        if(!primerNombre || primerNombre.trim()=== ""){
-            return res.status(400).json({
-                message: 'Este campo es obligatorio'
-            })
-        }
-        
-        if(!segundoNombre || segundoNombre.trim()=== ""){
-            return res.status(400).json({
-                message: 'Este campo es obligatorio'
-            })
-        }
-
-        //El apellido no puede ir vacio
-        if (!apellidos || apellidos.trim() === "") {
-            return res.status(400).json({ message: 'Los apellidos son obligatorios.' });
-        }
-
-        //Validar que el telefono pueda contener prefijo + o solo de 7 a 15 digitos
-        const esTelefonoValido = /^\+?\d{7,15}$/.test(telefono);
-
-        if (!esTelefonoValido) {
-            return res.status(400).json({ message: 'El número de teléfono no es válido.' });
-        }
-
-        //Validar que el correo contenga el formato valido
-        if (correo && !/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
-            return res.status(400).json({ message: 'El correo electrónico no tiene un formato válido.' });
-        }
-
-        const nuevoID = contactos.length > 0 ? Math.max(...contactos.map( contacto => contacto.id)) + 1 : 1
-
-        const nuevoContacto = {
-            id: nuevoID,
-            primerNombre: primerNombre.trim(),
-            segundoNombre: segundoNombre ? segundoNombre.trim() : "",
-            apellidos: apellidos.trim(),
-            telefono: telefono.trim(),
-            correo:correo.trim()
-        }
-
-        contactos.push(nuevoContacto)
-
-        res.status(200).json({
-        message: 'Contacto creado!.'
+    return res.status(400).json({
+      errors: parseResult.error.format(), 
     });
-    }
+  }
+
+  const contactoValido = parseResult.data;
+
+  const nuevoID = contactos.length > 0 ? Math.max(...contactos.map((c) => c.id)) + 1: 1;
+
+  const nuevoContacto = {
+    ...contactoValido,
+    id: contactoValido.id ?? nuevoID,
+  };
+
+  contactos.push(nuevoContacto);
+
+  return res.status(201).json({
+    message: 'Contacto creado.',
+    contacto: nuevoContacto,
+  });
+};
+
 
     //Actualizar un contacto
    export const updateContactos = (req, res) => {
