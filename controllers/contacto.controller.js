@@ -1,4 +1,5 @@
 
+import { message } from 'telegram/client'
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
 //const {getConexion, sql} = require('../database/database.js')
 
@@ -186,7 +187,28 @@ export const getSearchContacto = (req,res) => {
 
     //Eliminar un contacto
     export const deleteContactos =  (req,res)=>{
+        const {id} = req.params
+        const parseId  = Number(id)
 
+        if(isNaN(parseId || parseId <=0)){
+            res.status(400).json({
+                message: 'El ID debe ser un número positivo.'
+            })
+        }
+
+        const index = contactos.findIndex( contacto => contacto.id === parseId)
+
+        if(index === -1){
+            return res.status(404).json({
+                message: 'Contacto no encontrado'
+            })
+        }
+
+        contactos.splice(index,1)
+
+        return res.status(200).json({
+            message: 'Contacto eliminado exitosamente'
+        })
     }
 
 
