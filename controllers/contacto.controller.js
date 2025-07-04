@@ -43,7 +43,7 @@ export const getSearchContacto = (req,res) => {
         res.json(resultados)
 }
 
-    //Crear un contacto
+//Crear un contacto
 export const createContactos = (req, res) => {
 
   const parseResult = validateContactos(req.body);
