@@ -39,7 +39,7 @@
         <div class="sidebar">
             <button class="favorito-btn-sidebar" id="favoritos-sidebar">
                 <img src="./assets/logos/favoritoConClick.png" class="favoritos-icon-sidebar">
-            </button>'
+            </button>
             <button class="letrabtn" id="letras-sidebar">
                 A
             </button>
@@ -123,13 +123,11 @@
 
         <!--BARRA DE BUSQUEDA-->
         <div class="search-section">
-            <input class="search-bar" type="text" placeholder="Buscar contacto">
-
-            <button class="search-button">
+            <div class="search-container">
                 <img src="./assets/logos/search-icon.png" class="search-icon">
-            </button>
+                <input class="search-bar" type="text" placeholder="Buscar contacto">
+            </div>
         </div>
-        
 
         <!--LISTA DE CONTACTOS-->
         <main>
@@ -140,11 +138,10 @@
                     <div class="contact-name">
                         Carlos Kun
                     </div>
-                    <button class="call-btn">
-                        <img src="./assets/logos/call.png" class="llamar-icon">
-                    </button> 
                 </button>
-                
+                <button class="call-btn">
+                        <img src="./assets/logos/call.png" class="llamar-icon">
+                </button> 
             </div>
 
             <div class="contact-container">
@@ -163,7 +160,7 @@
 
         <!--BOTON DE AGREGAR CONTACTO-->
         <div class="aggContacto-container">
-            <button class="aggContacto-btn">
+            <button class="aggContacto-btn" id="aggContacto">
                 <img class="aggContacto-icon" src="../web/assets/logos/agContacto.png">
             </button>
         </div>
