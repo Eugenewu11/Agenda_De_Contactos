@@ -3,7 +3,7 @@ GET http://localhost:3000/contactos
 
 
 ###Buscar en searchbar
-GET http://localhost:3000/contactos/search?nombre=mart
+GET http://localhost:3000/contactos/search?nombre=mej
 
 ### Crear un contacto
 POST http://localhost:3000/contactos
@@ -31,3 +31,12 @@ Content-Type: application/json
 
 ### Eliminar un contacto
 DELETE http://localhost:3000/contactos/5
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}

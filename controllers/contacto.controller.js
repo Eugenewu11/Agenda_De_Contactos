@@ -1,27 +1,23 @@
 import { validateContactos } from '../schemas/contactos.schemas.js'
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
-//const {getConexion, sql} = require('../database/database.js')
+import { getAllContactos as getAllContactosDB, getBuscarContacto } from '../models/contactos.models.js'
 
-/*static getContactos = async (req,res) => {
-    try {
-        const conexion = await getConexion()
-        const data = await conexion.request().query('SELECT PrimerNombre FROM contacto')
-        res.json(data.recordset)
-    } catch (error) {
-        console.error('Error al obtener contactos: ',error)
-        res.status(500).json({
-            message: 'Error del servidor.'
-        })
-    }
-}*/
 
 //Metodo para devolver todos los contactos
-export const getAllContactos = (req,res) => {
-    res.json(contactos)
+export const getAllContactos = async (req,res) => {
+    try {
+        const contactosDB = await getAllContactosDB()
+        res.json(contactosDB)
+    } catch (error) {
+        res.status(500).json({
+            error: 'Error al obtener contactos'
+        })
+    }
+    
 }
 
  //Este metodo va a buscar segun lo que se escriba en el searchbar
-export const getSearchContacto = (req,res) => {
+export const getSearchContacto = async (req,res) => {
     const { nombre } = req.query
 
         //Si el nombre enviado al searchbar no igual o no existe devolver un error        
@@ -31,23 +27,31 @@ export const getSearchContacto = (req,res) => {
             })
         }
 
-        const nombreBuscado = nombre.toLowerCase()
+        try {
+            const resultados = await getBuscarContacto(nombre)
 
-        const resultados = contactos.filter( contacto => {
-            //Filtrar la busqueda pasando todo a minusculas y encontrar el cualquier coincidencia
-            return(
-            contacto.primerNombre.toLowerCase().includes(nombreBuscado) || 
-            (contacto.segundoNombre.toLowerCase().includes(nombreBuscado)) ||
-            contacto.apellidos.toLowerCase().includes(nombreBuscado) )
+            //Si no se encontraron coincidencias entonces...
+            if(resultados.length === 0){
+                return res.status(404).json({
+                    message: 'No se encontro el contacto especificado.'
+                })
+            }
+            res.json(resultados)
+        } catch (error) {
+            res.status(500).json({
+            message: 'Error al buscar contactos',
+            error: error.message
         })
-        res.json(resultados)
+    }
 }
 
 //Crear un contacto
 export const createContactos = (req, res) => {
 
+    //Valida los campos que vienen en el body con zod
   const parseResult = validateContactos(req.body);
 
+  //Si no cumplen con el formato, se envia un error de formato
   if (!parseResult.success) {
 
     return res.status(400).json({
@@ -55,13 +59,16 @@ export const createContactos = (req, res) => {
     });
   }
 
-  const contactoValido = parseResult.data;
+  //Variable para almacenar data valida del body
+  const contactoValido = parseResult.data; //.data viene del resultado que retorn la funcion validateContactos()
 
   const nuevoID = contactos.length > 0 ? Math.max(...contactos.map((c) => c.id)) + 1: 1;
 
+  //Se crea un nuevo objeto copiando todas las propiedades de contactoValido 
   const nuevoContacto = {
     ...contactoValido,
-    id: contactoValido.id ?? nuevoID,
+    id: contactoValido. //Si contactoValido ya tiene un id definido
+    id ?? nuevoID, //Si no tiene ID, se usa el nuevoID calculado
   };
 
   contactos.push(nuevoContacto);

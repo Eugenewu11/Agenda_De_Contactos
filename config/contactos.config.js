@@ -12,6 +12,7 @@ const sqlConfig = {
     database: process.env.DB_NAME,
     port: parseInt(process.env.DB_PORT || '1433'),  // Puerto por defecto 1433
     options: {
+        encrypyt: false, 
         trustServerCertificate: process.env.DB_TRUST_SERVER_CERTIFICATE === 'true', 
         enableArithAbort: true
     },
