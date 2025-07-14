@@ -1,180 +1,194 @@
-/*GENERAL*/
-
-
-.perfil-body{
-    background-color: #1B1F3B;
-    height: 800px;
-    color: white;
-    margin: 0;
-    padding: 0;
+.perfil-body {
+  margin: 0;
+  background-color: #1b1f3b;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.perfil-header{
-
-    margin: 0;
-    padding: 0;
-
-    margin-bottom: 70px;
-
-    height: 200px;
-    width: 100%;
-
-    background-color: #4A6CF7;
+.perfil-header {
+  background-color: #4a6cf7;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/*DIVS*/
-.header-div{
-    height: 200px;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;  
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.foto-div, .nombre-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.left-section,
+.right-section {
+  display: flex;
+  gap: 0.5rem;
 }
 
-.numero-div, .correo-div,.compartir-div,.qr-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 60px;
-    margin-bottom: 15px;
-
-    background-color: #4a5dac;
+.mid-section {
+  text-align: center;
 }
 
-/*SECCIONES*/
-.left-section{
-    display: flex;
-    justify-content: start;
-    align-items: first baseline;
-
-    padding: 25px;
-    height: 200px;
-    gap: 10px;
+.user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
 }
 
-.mid-section{
-    display: grid;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+.nombre-contacto {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
 }
 
-.right-section{
-    display: flex;
-    justify-content: end;
-    align-items: first baseline;
-
-    padding: 25px;
-    height: 200px;
-    gap: 10px;
+.icon-btn {
+  background-color: #f7a64a;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
 }
 
-/*ICONOS*/
-.favorito-icon, .editar-icon, .eliminar-icon, .atras-icon{
-    height: 30px;
-    width: 30px;
-}
-
-.call-icon,
-.correo-icon,.compartir-icon, .QR-icon, .copiar-icon{
-    height: 20px;
-    width: 20px;
-}
-
-.user-icon{
-    height: 100px;
-    height: 100px;
-}
-
-/*BOTONES*/
-.favorito-btn,.editar-btn, .eliminar-btn, .atras-btn
-{
-    height: 50px;
-    max-height: 50px;
-    width: 50px;
-    max-width: 50px;
-    border-radius: 25px;
-    border: none; 
-
-    cursor: pointer;
-    background-color: #F7A64A;
-}
-
-.favorito-btn, .eliminar-btn{
-    margin-left: 10px;
-}
-
-.compartir-btn,.QR-btn{
-    margin-right: 20px;
-}
-.btn-wrapper{
-    margin-right: 20px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.call-btn, .compartir-btn,
-.correo-btn,.QR-btn, .copiar-btn{
-    height: 40px;
-    max-height: 40px;
-    width: 40px;
-    max-width: 40px;
-    border-radius: 20px;
-    border: none; 
-
-    cursor: pointer;
-    background-color: #F7A64A
-}
-
-/*ANIMACIONES*/
-.favorito-btn:hover,
-.editar-btn:hover,
-.eliminar-btn:hover,
-.atras-btn:hover,
-.call-btn:hover,
-.compartir-btn:hover,
-.correo-btn:hover,
-.QR-btn:hover,
-.copiar-btn:hover  {
-  transform: scale(1.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.icon-btn:hover {
   background-color: #f79e38;
+  transform: scale(1.1);
 }
 
-/*TEXTO*/
-.nombreContacto{
-    font-size: 25px;
-    font-weight: bold;
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
-.correo,.numero,.qr{
-    color: white;
-    font-family: arial;
+.perfil-main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-section {
+  background-color: #4a5dac;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.info-value {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.info-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  background-color: #f7a64a;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: #f79e38;
+  transform: scale(1.1);
+}
+
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 480px) {
+  .user-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nombre-contacto {
+    font-size: 1rem;
+  }
+
+  .icon-btn,
+  .action-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon,
+  .icon-sm {
+    width: 18px;
+    height: 18px;
+  }
+
+  .info-label,
+  .info-value {
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (max-width: 340px) {
+  .nombreContacto {
+    font-size: 18px;
+  }
+
+  .user-icon {
+    height: 70px;
+    width: 70px;
+  }
+
+  .favorito-btn,
+  .editar-btn,
+  .eliminar-btn,
+  .atras-btn,
+  .call-btn,
+  .correo-btn,
+  .compartir-btn,
+  .QR-btn,
+  .copiar-btn {
+    height: 38px;
+    width: 38px;
+  }
+
+  .call-icon,
+  .correo-icon,
+  .compartir-icon,
+  .QR-icon,
+  .copiar-icon {
+    height: 18px;
+    width: 18px;
+  }
+
+  .titulo {
     font-size: 13px;
-}
+  }
 
-.titulo{
-    color: white;
-    font-family: arial;
-    font-size: 15px;
-    font-weight: 700;
-
-    margin-left: 25px;
+  .correo,
+  .numero {
+    font-size: 13px;
+  }
 }

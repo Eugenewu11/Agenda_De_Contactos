@@ -1,58 +1,91 @@
 .contact-container {
   background-color: #4a5dac;
-  height: 8vh;
+  border-radius: 0.5em;
+  margin: 0.5em auto;
   width: 90%;
-  border-radius: 0.3em;
-  margin-bottom: 0.5em;
-  margin-left: 3%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2%;
-}
-
-.contact-name {
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  padding-left: 2%;
-  color: white;
-}
-
-.modalBtn:hover {
-  cursor: pointer;
-  background-color: #6380f5;
+  padding: 0.8em 1em;
+  gap: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
 
-.llamar-icon {
-  height: 55%;
-  width: 55%;
-}
 
-.call-btn {
-  height: 4em;
-  width: 4em;
-  border: none;
-  border-radius: 50%;
-  background-color: #4a6cf7;
-  margin-right: 2%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.call-btn:hover,.contact-container:hover {
-  cursor: pointer;
+.contact-container:hover {
   background-color: #6380f5;
-  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .modalBtn {
   border: none;
-  background-color: transparent;
+  background-color: transparent; 
   text-align: start;
   flex-grow: 1;
   height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-left: 2rem;
+}
+
+.contact-name {
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  word-break: break-word;
+}
+
+.modalBtn:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.call-btn {
+  height: 3em;
+  width: 3em;
+  border: none;
+  border-radius: 50%;
+  background-color: #F7A64A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.call-btn:hover {
+  background-color: #cf914a;
+}
+
+.llamar-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modalBtn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .call-btn {
+    margin-top: 0.5em;
+    align-self: flex-end;
+  }
+
+  .contact-name {
+    font-size: 1rem;
+  }
 }

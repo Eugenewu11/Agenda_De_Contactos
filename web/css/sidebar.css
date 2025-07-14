@@ -1,19 +1,27 @@
 .sidebar {
   position: fixed;
   right: 0;
+  top: 13.8%;
   bottom: 0;
-  top: 15.3%; 
   background-color: #4a5dac;
   border-left: 1px solid #4a5dac;
-  width: 2%; 
-  min-width: 35px; 
-  max-width: 60px; 
+  width: 2.5%;
+  min-width: 35px;
+  max-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.5em 0;
+  overflow-y: auto;
+  z-index: 100;
 }
 
+/* Favorito */
 .favorito-btn-sidebar {
   display: flex;
-  height: 2.3em; 
-  width: 2.3em; 
+  height: 2.3em;
+  width: 2.3em;
   align-items: center;
   justify-content: center;
   background-color: #4a5dac;
@@ -36,8 +44,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.3em; 
-  height: 2.3em; 
+  width: 2.2em;
+  height: 2.2em;
   color: white;
   font-size: 1rem;
   border: none;
@@ -49,4 +57,34 @@
   cursor: pointer;
   font-weight: 700;
   background-color: #F7A64A;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    right: 0;
+    left: 0;
+    width: 12vw;
+    min-width: 40px;
+    max-width: 60px;
+    height: 52rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-left: none;
+    border-top: 2px solid #4a5dac;
+    background-color: #4a5dac;
+    padding: 0.5em 0;
+    overflow-x: auto;
+    z-index: 1000;
+  }
+
+  .letrabtn, .favorito-btn-sidebar {
+    width: 2em;
+    height: 2em;
+    font-size: 0.9rem;
+  }
 }
