@@ -1,6 +1,6 @@
 import { validateContactos } from '../schemas/contactos.schemas.js'
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
-import { getAllContactos as getAllContactosDB, getBuscarContacto } from '../models/contactos.models.js'
+import { getAllContactos as getAllContactosDB, getBuscarContacto,insertContacto } from '../models/contactos.models.js'
 
 
 //Metodo para devolver todos los contactos
@@ -48,7 +48,7 @@ export const getSearchContacto = async (req,res) => {
 //Crear un contacto
 export const createContactos = (req, res) => {
 
-    //Valida los campos que vienen en el body con zod
+  //Valida los campos que vienen en el body con zod
   const parseResult = validateContactos(req.body);
 
   //Si no cumplen con el formato, se envia un error de formato
@@ -60,7 +60,7 @@ export const createContactos = (req, res) => {
   }
 
   //Variable para almacenar data valida del body
-  const contactoValido = parseResult.data; //.data viene del resultado que retorn la funcion validateContactos()
+  const contactoValido = parseResult.data; //.data viene del resultado que return la funcion validateContactos()
 
   const nuevoID = contactos.length > 0 ? Math.max(...contactos.map((c) => c.id)) + 1: 1;
 
