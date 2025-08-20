@@ -43,10 +43,11 @@ export const getBuscarContacto = async (nombre) => {
 }
 
 export const insertContacto = async (contacto) => {
-    const conn = await db.poolConnect()
-    const transaccion = new db.sql.Transaction(conn)
-
+    
     try {
+        const conn = await db.pool.connect()
+        const transaccion = new db.sql.Transaction(conn)
+
         await transaccion.begin()
 
         const request = new db.sql.Request(transaccion)
@@ -78,10 +79,11 @@ export const insertContacto = async (contacto) => {
 }
 
 export const updateContacto = async (id, contacto) => {
-    const conn = db.poolConnect()
-    const transaccion = new db.sql.Transaction(conn)
+    
 
     try {
+        const conn = await db.pool.connect()
+        const transaccion = new db.sql.Transaction(conn)
         await transaccion.begin()
 
         const request = new db.sql.Request(transaccion)
@@ -117,10 +119,11 @@ export const updateContacto = async (id, contacto) => {
 }
 
 export const deleteContacto = async (id) => {
-    const conn = db.sql.connect()
-    const transaccion = db.sql.Transaction(conn)
-
+    
     try {
+        const conn = await db.pool.connect()
+        const transaccion = new db.sql.Transaction(conn)
+
         await transaccion.begin()
 
         const request = new db.sql.Request(transaccion)

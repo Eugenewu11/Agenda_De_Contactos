@@ -29,13 +29,4 @@ Content-Type: application/json
 }
 
 ### Eliminar un contacto
-DELETE http://localhost:3000/contactos/5
-
-### Login
-POST http://localhost:3000/auth/login
-Content-Type: application/json
-
-{
-    "username": "admin",
-    "password": "admin123"
-}
+DELETE http://localhost:3000/contactos/6

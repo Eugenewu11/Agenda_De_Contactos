@@ -1,6 +1,5 @@
 import express from 'express'
 import contactRoutes from './routes/contacto.route.js'
-import authRoutes from './routes/auth.route.js'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
@@ -16,6 +15,8 @@ app.use(express.json())
 
 app.use(cors({
     origin: [
+        'http://localhost:1433',
+        'http://localhost:3000',
         'http://localhost:5500',
         'http://127.0.0.1:5500',
         'https://prod.server.com',
@@ -27,9 +28,6 @@ app.use(cors({
 
 //Ruta de contactos
 app.use('/contactos',contactRoutes)
-
-//Ruta de autenticacion
-app.use('/auth',authRoutes)
 
 //Si no se encuentra esa ruta, mostrar error
 app.use((req,res)=>{

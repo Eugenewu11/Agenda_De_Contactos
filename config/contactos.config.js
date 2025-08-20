@@ -25,7 +25,7 @@ const sqlConfig = {
 
 // Crear el pool de conexiones
 const pool = new sql.ConnectionPool(sqlConfig);
-const poolConnect = pool.connect();  // Inicia la conexión
+const poolConnect = pool.connect();  // Inicia la conexión y valida credenciales
 
 // Manejo de errores
 pool.on('error', err => {
@@ -38,3 +38,6 @@ export default {
     pool,
     poolConnect
 };
+
+//Pool: Es un conjunto de conexiones reutilizables, evita cerrar/abrir conexiones por cada solicitud
+//Esta mantiene conexiones listas para usar lo que lo hace mejora el rendimiento
