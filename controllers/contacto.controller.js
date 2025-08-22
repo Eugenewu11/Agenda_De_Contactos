@@ -1,7 +1,7 @@
 import { validateContactos,contactoSchemaUpdate } from '../schemas/contactos.schemas.js'
 import contactos from '../db_pruebas/contactosPrueba.json' with {type: 'json'}
 import { getAllContactos as getAllContactosDB, getBuscarContacto,insertContacto,updateContacto, deleteContacto as deleteContactoDB} from '../models/contactos.models.js'
-import { message } from 'telegram/client/index.js'
+
 
 
 //Metodo para devolver todos los contactos
@@ -13,8 +13,7 @@ export const getAllContactos = async (req,res) => {
         res.status(500).json({
             error: 'Error al obtener contactos'
         })
-    }
-    
+    } 
 }
 
  //Este metodo va a buscar segun lo que se escriba en el searchbar
