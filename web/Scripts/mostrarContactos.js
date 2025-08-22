@@ -8,46 +8,18 @@ const API_ENDPOINT = '/contactos';
 let todosLosContactos = [];
 let contactosFiltrados = [];
 
-
-
 //INICIALIZACIÓN PRINCIPAL
-
 
 // Función principal que se ejecuta cuando la página se carga
 document.addEventListener('DOMContentLoaded', function() {
-    // Configurar el botón de atrás (para página de agregar contacto)
-    configurarBotonAtras();
-    
-    // Configurar formulario de contacto (si existe)
-    configurarFormularioContacto();
-    
     // Cargar contactos al iniciar (solo en index.html)
     cargarContactos();
     
-    // Configurar todos los event listeners
+    // Configurar todos los event listeners para mostrar contactos
     configurarEventListeners();
 });
 
-
 // CONFIGURACIÓN DE EVENT LISTENERS
-
-function configurarBotonAtras() {
-    const atrasBtn = document.getElementById('atras-btn');
-    if (atrasBtn) {
-        atrasBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
-            window.location.href = "index.html";
-            window.close()
-        });
-    }
-}
-
-function configurarFormularioContacto() {
-    const contactoForm = document.getElementById('contactoForm');
-    if (contactoForm) {
-        contactoForm.addEventListener('submit', handleFormSubmit);
-    }
-}
 
 function configurarEventListeners() {
     // Configurar búsqueda
@@ -70,19 +42,9 @@ function configurarEventListeners() {
     if (favoritosBtn) {
         favoritosBtn.addEventListener('click', mostrarFavoritos);
     }
-
-    // Configurar botón de agregar contacto
-    const aggContactoBtn = document.getElementById('aggContacto');
-    if (aggContactoBtn) {
-        aggContactoBtn.addEventListener('click', function() {
-            window.location.href = 'agregarContacto.html';
-        });
-    }
 }
 
-
-//OPERACIONES CON LA API (CRUD)
-
+//OPERACIONES CON LA API (READ)
 
 // Función para cargar todos los contactos desde el backend
 async function cargarContactos() {
@@ -125,109 +87,6 @@ async function cargarContactos() {
     }
 }
 
-// Función para enviar datos al backend
-async function saveContact(contactoData) {
-    try {
-        const response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(contactoData)
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            // Manejar errores del backend
-            if (data.errors) {
-                // Si hay errores de validación de Zod
-                const errorMessages = Object.values(data.errors)
-                    .filter(error => error._errors)
-                    .map(error => error._errors.join(', '))
-                    .join('; ');
-                
-                throw new Error(errorMessages || 'Error de validación');
-            }
-            throw new Error(data.message || 'Error del servidor');
-        }
-
-        return data;
-    } catch (error) {
-        if (error.name === 'TypeError' && error.message.includes('fetch')) {
-            throw new Error('No se pudo conectar con el servidor. Verifique que el backend esté ejecutándose.');
-        }
-        throw error;
-    }
-}
-
-
-// MANEJO DE FORMULARIOS
-
-// Función para manejar el envío del formulario de contacto
-async function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    // Obtener los datos del formulario
-    const formData = new FormData(event.target);
-
-    const contactoData = {
-        PrimerNombre: formData.get('primerNombre'), 
-        SegundoNombre: formData.get('segundoNombre') || undefined, 
-        Apellidos: formData.get('apellidos'), 
-        Telefono: formData.get('telefono'), 
-        Correo: formData.get('correo') || undefined 
-    };
-
-    console.log('Datos a enviar:', contactoData); // Para debug
-
-    // VALIDACIÓN: solo campos realmente obligatorios
-    if (!contactoData.primerNombre || !contactoData.apellidos || !contactoData.telefono) {
-        alert('Por favor, complete: Primer nombre, Apellidos y Teléfono');
-        return;
-    }
-
-    if (!isValidPhone(contactoData.telefono)) {
-        alert('Teléfono no válido. Debe tener entre 8 y 15 dígitos y opcionalmente el prefijo "+" al inicio.');
-        return;
-    }
-
-    // Validación de email SOLO si se proporciona
-    if (contactoData.correo && contactoData.correo !== '' && !isValidEmail(contactoData.correo)) {
-        alert('Por favor, ingrese un correo electrónico válido');
-        return;
-    }
-
-    try {
-        // Mostrar indicador de carga
-        const submitBtn = event.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = 'Guardando...';
-        submitBtn.disabled = true;
-
-        // Enviar datos al backend
-        const response = await saveContact(contactoData);
-
-        // Mostrar mensaje de éxito
-        alert('Contacto guardado exitosamente!');
-        
-        // Limpiar formulario
-        event.target.reset();
-
-    } catch (error) {
-        console.error('Error al guardar contacto:', error);
-        alert('Error al guardar el contacto: ' + error.message);
-    } finally {
-        // Restaurar botón
-        const submitBtn = event.target.querySelector('button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.innerHTML = '<img class="guardar-icon" src="./assets/logos/guardar.png">';
-            submitBtn.disabled = false;
-        }
-    }
-}
-
-
 // FILTRADO Y BÚSQUEDA
 
 // Función para manejar la búsqueda en tiempo real
@@ -241,8 +100,8 @@ function manejarBusqueda(event) {
         // Filtrar contactos que coincidan con el término
         contactosFiltrados = todosLosContactos.filter(contacto => {
             const nombreCompleto = `${contacto.PrimerNombre} ${contacto.SegundoNombre || ''} ${contacto.Apellidos}`.toLowerCase();
-            const telefono = contacto.Telefono.toString(); // Cambiado a Telefono
-            const correo = contacto.Correo ? contacto.Correo.toLowerCase() : ''; // Asumiendo que se llama Correo
+            const telefono = contacto.Telefono.toString();
+            const correo = contacto.Correo ? contacto.Correo.toLowerCase() : '';
             
             return nombreCompleto.includes(terminoBusqueda) ||
                    telefono.includes(terminoBusqueda) ||
@@ -265,7 +124,7 @@ function filtrarPorLetra(letra) {
     
     // Filtrar contactos usando el nombre correcto de propiedad
     contactosFiltrados = todosLosContactos.filter(contacto => 
-        contacto.PrimerNombre.charAt(0).toUpperCase() === letra // Cambiado a PrimerNombre
+        contacto.PrimerNombre.charAt(0).toUpperCase() === letra
     );
     
     mostrarContactos(contactosFiltrados);
@@ -278,7 +137,6 @@ function mostrarFavoritos() {
     // contactosFiltrados = todosLosContactos.filter(contacto => contacto.favorito);
     // mostrarContactos(contactosFiltrados);
 }
-
 
 //RENDERIZADO Y MANIPULACIÓN DEL DOM
 
@@ -304,8 +162,8 @@ function mostrarContactos(contactos) {
 
     // Ordenar contactos alfabéticamente por primer nombre
     const contactosOrdenados = contactos.sort((a, b) => {
-        const nombreA = (a.PrimerNombre || '').toString().toLowerCase(); // Cambiado a PrimerNombre
-        const nombreB = (b.PrimerNombre || '').toString().toLowerCase(); // Cambiado a PrimerNombre
+        const nombreA = (a.PrimerNombre || '').toString().toLowerCase();
+        const nombreB = (b.PrimerNombre || '').toString().toLowerCase();
         return nombreA.localeCompare(nombreB);
     });
 
@@ -320,16 +178,16 @@ function mostrarContactos(contactos) {
 function crearElementoContacto(contacto) {
     const contactoDiv = document.createElement('div');
     contactoDiv.className = 'contact-container';
-    contactoDiv.dataset.contactoId = contacto.ContactoID; // Cambiado a ContactoID
+    contactoDiv.dataset.contactoId = contacto.ContactoID;
 
     // Crear nombre completo usando los nombres correctos de propiedades
     const nombreCompleto = `${contacto.PrimerNombre} ${contacto.SegundoNombre || ''} ${contacto.Apellidos}`.trim();
 
     contactoDiv.innerHTML = `
-        <button class="modalBtn" onclick="mostrarDetalleContacto(${contacto.ContactoID})"> <!-- Cambiado a ContactoID -->
+        <button class="modalBtn" onclick="mostrarDetalleContacto(${contacto.ContactoID})">
             <span class="contact-name">${nombreCompleto}</span>
         </button>
-        <button class="call-btn" onclick="llamarContacto('${contacto.Telefono}')"> <!-- Cambiado a Telefono -->
+        <button class="call-btn" onclick="llamarContacto('${contacto.Telefono}')">
             <img src="./assets/logos/call.png" class="llamar-icon" alt="Llamar" />
         </button>
     `;
@@ -337,18 +195,23 @@ function crearElementoContacto(contacto) {
     return contactoDiv;
 }
 
-
 // INTERACCIONES DEL USUARIO
 
 // Función para mostrar detalles de un contacto 
 function mostrarDetalleContacto(contactoId) {
-    const contacto = todosLosContactos.find(c => c.ContactoID === contactoId); // Cambiado a ContactoID
+    const contacto = todosLosContactos.find(c => c.ContactoID === contactoId);
     if (contacto) {
         console.log('Mostrar detalle de contacto:', contacto);
-        alert(`Detalle de: ${contacto.PrimerNombre} ${contacto.Apellidos}\nTeléfono: ${contacto.Telefono}${contacto.Correo ? '\nCorreo: ' + contacto.Correo : ''}`); // Cambiado a Telefono y asumiendo Correo
+        alert(`Detalle de: ${contacto.PrimerNombre} ${contacto.Apellidos}\nTeléfono: ${contacto.Telefono}${contacto.Correo ? '\nCorreo: ' + contacto.Correo : ''}`);
     }
 }
 
+// Función para llamar a un contacto (placeholder)
+function llamarContacto(telefono) {
+    console.log('Llamando a:', telefono);
+    // Aquí podrías implementar la lógica para iniciar una llamada
+    alert(`Llamando a ${telefono}`);
+}
 
 // ESTADOS DE LA INTERFAZ
 
@@ -408,23 +271,6 @@ function mostrarError(mensaje) {
         main.appendChild(errorDiv);
     }
 }
-
-
-//VALIDACIONES
-
-
-// Función para validar formato de email
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Función para validar formato de teléfono
-function isValidPhone(phone) {
-    const phoneRegex = /^\+?\d{8,15}$/;
-    return phoneRegex.test(phone);
-}
-
 
 //UTILIDADES PÚBLICAS
 

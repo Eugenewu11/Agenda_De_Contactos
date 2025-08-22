@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //! Abre nueva pagina para guardar nuevo contacto
 document.getElementById("aggContacto").addEventListener("click", function () {
-    window.location.href = "crearContacto.html";
+    window.location.href = "crearContacto.html"
   });
 
 
