@@ -42,6 +42,14 @@ function configurarEventListeners() {
     if (favoritosBtn) {
         favoritosBtn.addEventListener('click', mostrarFavoritos);
     }
+
+    // Configurar botón de agregar contacto
+    const aggContactoBtn = document.getElementById('aggContacto');
+    if (aggContactoBtn) {
+        aggContactoBtn.addEventListener('click', function() {
+            window.location.href = 'crearContacto.html';
+        });
+    }
 }
 
 //OPERACIONES CON LA API (READ)
@@ -183,34 +191,40 @@ function crearElementoContacto(contacto) {
     // Crear nombre completo usando los nombres correctos de propiedades
     const nombreCompleto = `${contacto.PrimerNombre} ${contacto.SegundoNombre || ''} ${contacto.Apellidos}`.trim();
 
-    contactoDiv.innerHTML = `
-        <button class="modalBtn" onclick="mostrarDetalleContacto(${contacto.ContactoID})">
-            <span class="contact-name">${nombreCompleto}</span>
-        </button>
-        <button class="call-btn" onclick="llamarContacto('${contacto.Telefono}')">
-            <img src="./assets/logos/call.png" class="llamar-icon" alt="Llamar" />
-        </button>
-    `;
+    // Crear botón principal del contacto
+    const modalBtn = document.createElement('button');
+    modalBtn.className = 'modalBtn';
+    modalBtn.innerHTML = `<span class="contact-name">${nombreCompleto}</span>`;
+    
+    // Agregar event listener para abrir perfil
+    modalBtn.addEventListener('click', function() {
+        abrirPerfilContacto(contacto.ContactoID);
+    });
+
+    // Crear botón de llamar
+    const callBtn = document.createElement('button');
+    callBtn.className = 'call-btn';
+    callBtn.innerHTML = `<img src="./assets/logos/call.png" class="llamar-icon" alt="Llamar" />`;
+    
+    // Agregar event listener para llamar (evitar propagación)
+    callBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        llamarContacto(contacto.Telefono);
+    });
+
+    // Agregar botones al contenedor
+    contactoDiv.appendChild(modalBtn);
+    contactoDiv.appendChild(callBtn);
 
     return contactoDiv;
 }
 
 // INTERACCIONES DEL USUARIO
 
-// Función para mostrar detalles de un contacto 
-function mostrarDetalleContacto(contactoId) {
-    const contacto = todosLosContactos.find(c => c.ContactoID === contactoId);
-    if (contacto) {
-        console.log('Mostrar detalle de contacto:', contacto);
-        alert(`Detalle de: ${contacto.PrimerNombre} ${contacto.Apellidos}\nTeléfono: ${contacto.Telefono}${contacto.Correo ? '\nCorreo: ' + contacto.Correo : ''}`);
-    }
-}
-
-// Función para llamar a un contacto (placeholder)
-function llamarContacto(telefono) {
-    console.log('Llamando a:', telefono);
-    // Aquí podrías implementar la lógica para iniciar una llamada
-    alert(`Llamando a ${telefono}`);
+// Función para abrir el perfil de un contacto usando su ID
+function abrirPerfilContacto(contactoId) {
+    console.log('Abriendo perfil para contacto ID:', contactoId);
+    window.open(`perfil.html?id=${contactoId}`, '_blank');
 }
 
 // ESTADOS DE LA INTERFAZ
